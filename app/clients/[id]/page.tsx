@@ -43,19 +43,29 @@ export default async function ClientDetailPage({
       </div>
 
       <section>
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-500 mb-3">
-          Projects
-        </h2>
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-500">
+            Projects
+          </h2>
+          <Link
+            href={`/clients/${clientId}/projects/new`}
+            className="text-xs rounded-md border border-neutral-300 dark:border-neutral-700 px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+          >
+            New GEO project
+          </Link>
+        </div>
         {clientProjects.length === 0 ? (
           <div className="rounded-lg border border-dashed border-neutral-300 dark:border-neutral-700 p-8 text-center text-sm text-neutral-500">
-            No projects yet. Module-specific project creation (GEO / Programmatic
-            / Local) comes online in Phase 1+.
+            No projects yet. Create a GEO project to start tracking brand
+            citations across AI engines.
           </div>
         ) : (
           <ul className="rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 divide-y divide-neutral-200 dark:divide-neutral-800">
             {clientProjects.map((p) => (
-              <li key={p.id} className="px-4 py-3 text-sm flex justify-between">
-                <span className="font-medium">{p.name}</span>
+              <li key={p.id} className="px-4 py-3 text-sm flex justify-between hover:bg-neutral-50 dark:hover:bg-neutral-800/50">
+                <Link href={`/projects/${p.id}`} className="font-medium flex-1">
+                  {p.name}
+                </Link>
                 <span className="text-neutral-500">{p.module}</span>
               </li>
             ))}
