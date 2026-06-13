@@ -13,7 +13,7 @@ const MODULES = [
     title: "GEO Tracker",
     description:
       "Measure brand citations across ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews. Weekly share-of-voice reports.",
-    status: "Phase 1",
+    status: "Available",
   },
   {
     id: "programmatic",
